@@ -1,0 +1,238 @@
+---
+date: 30 June 2010
+summary: A look at the upcoming changes to The Ruby Racer's embedding API and how they will affect the way that a Ruby object looks like from within JavaScript code.
+more: read about how it works.
+categories: [javascript, ruby, therubyracer]
+description: The strategy that Ruby Racer takes to access Ruby objects from JavaScript. The Ruby Racer embeds google's V8 JavaScript interpreter into Ruby.
+---
+# Accessing Ruby Objects from V8
+
+The upcoming version of [The Ruby Racer](http://github.com/cowboyd/therubyracer) will see some significant
+changes to the way Ruby objects are reflected into the javascript runtime and how you the programmer
+can control the way that those ruby objects appear.
+
+Most of these changes were precipitated from the experience of integrating The Ruby Racer with the [Rednode](http://github.com/aslakhellesoy/rednode) and [RDom](http://github.com/svenfuchs/rdom) projects.
+Both efforts have run up against the shortcomings in the way Ruby objects are embedded into JavaScript, and
+as a result have both had a large hand in crafting the improvements which I'm about to describe. Many thanks got to [Aslak Hellesoy](http://blog.aslakhellesoy.com/) and [Sven Fuchs](http://www.artweb-design.de/svenfuchs) for helping to
+flush out all the various issues.
+
+In picking the default strategy, there were three principles that I wanted to adhere to
+
+1. **Do what I mean**
+
+    The JavaScript object representing your Ruby object should behave as closely as what you intend with
+    the Ruby object itself. In other words, properties should be properties. Methods should be methods.
+    Public properties and methods should be public, while private properties and methods should be private.
+
+1. **No new syntax required**
+
+    Ruby has a rich and flexible syntax for describing how objects behave. Instead of introducing a new syntax
+    by way of a DSL describing how those objects behave inside a javascript runtime, I wanted to borrow/re-use as 
+    much of the Ruby syntax as possible. This may prove to be a difficult goal to achieve going forward given that
+    the two runtimes do differ in many significant ways. Nevertheless, I want to see how far plain old ruby semantics
+    can take us.
+    
+1. **Safe by default**
+
+    JavaScript has been used since its earliest beginnings to provide a eval-safe sandbox in which anonymous code
+    can be executed without posing any danger to the host system. To enable this type of development, one of the
+    design goals of The Ruby Racer is for developers to be have the freedom to build their JavaScript environments
+    confident that the framework won't introduce silently introduce dangerous security holes. Unsafe behavior must
+    be explicitly included into the default JavaScript runtime.
+
+## Basic Access
+
+To call a Ruby object from javascript, assign a name to it in the context. The following code assigns a new instance
+of the class `Foo` to the name `f`.
+
+    class Foo
+      def foo(count)
+        "foo" * count
+      end
+    end
+    cxt = V8::Context.new
+    f = Foo.new
+    cxt['f'] = f
+
+We can now access this object from within JavaScript
+
+    cxt.eval('f.foo(2)') #=> "foofoo"
+
+Ruby procs and methods can also be directly embedded into javascript and will behave just like a function
+
+    cxt['foo'] = proc {|times| f.foo(times)}
+    cxt['footoo] = f.method(:foo)
+    
+    cxt.eval('foo(3)') #=> "foofoofoo"
+    cxt.eval('footoo(1)') #=> "foo"
+
+## Properties vs. Methods
+
+In JavaScript, everything is just a property on an object. Methods are just properties that happen to be functions. In
+Ruby on the other hand, properties and methods are indistinguishable. A property is just a method without any arguments, so
+The Ruby Racer re-uses this convention for reflecting Ruby objects into JavaScript. That is to say if a Ruby method takes no arguments, then it will look like a JavaScript property.
+
+    class Random
+      def number
+        (Kernel.rand * 100).to_i
+      end
+    end
+    
+    cxt['random'] = Random.new
+    cxt.eval('random.number') #=> 80
+    cxt.eval('random.number') #=> 77
+
+### Property assignment
+
+Properties aren't always read only. When you want to assign to them, The Ruby Racer uses standard Ruby assigment methods
+
+    class Doubler
+      def number
+        @number ||= 2
+      end
+      
+      def number=(value)
+        @number = value * 2
+      end
+    end
+    
+    cxt['doubler'] = Doubler.new
+    cxt.eval('doubler.number = 5')
+    cxt.eval('doubler.number') #=> 10
+
+Which mean for standard run of the mill Ruby properties, you can use plain old `attr_accessor`, just like Matz intended
+
+    class NotFancy
+      attr_accessor :pants
+    end
+    
+    plain = NotFancy.new
+    cxt['plain'] = plain
+    cxt.eval('plain.pants = "blue"')
+    puts plain.pants #=> "blue"
+    plain.pants = "green"
+    cxt.eval('plain.pants') #=> "green"
+
+### Methods with No Arguments
+
+There are some cases however, where you want a zero-argument Ruby method to *not* look like a property. Most of the time these 
+represent definite actions that can be invoked (`this.dequeue()`, `stack.clear()`, etc...) as opposed to state that can be 
+read (e.g. `array.length`). For this case, make a getter that returns a function.
+
+    class Mouth
+      def sayHello()
+        proc do
+          "Hello"
+        end
+      end
+    end
+    
+    cxt['mouth'] = Mouth.new
+    cxt.eval('mouth.sayHello') #=> [object Function]
+    cxt.eval('mouth.sayHello()') #=> "Hello"
+
+### Dynamically Declaring Properties
+
+A highly meta-programming enabled language like Ruby means that methods are often generated by code and not by the programmer. If you're going to generate methods that will be called from JavaScript, then it is important that you be able to control whether they appear as properties or functions. By default, Ruby `Proc` objects have an arity of -1 (meaning variadic arguments)which means that JavaScript will see them as a function and not a property.
+
+    class Foo
+      self.send(:define_method, :bar) do
+        "bar!"
+      end
+    end
+    cxt['foo'] = Foo.new
+    cxt.eval('foo.bar') #=> [object Function]
+    cxt.eval('foo.bar()) #=> bar!
+    
+To make the method appear as a property, you must explicitly tell ruby that the block takes no arguments by declaring it with "empty pipes"
+
+    class Foo
+      self.send(:define_method, :baz) do || #<--- empty pipes
+        "baz!"
+      end
+    end
+    
+    cxt.eval('foo.baz') #=> baz!
+
+
+## Intercepting Property Access
+
+What happens if you want to implement properties so dynamic that you won't know if they are defined until you actually try 
+to access them? This is actually very common in Ruby. If it cannot find a method for particular object, it will invoke its method_missing() method and allow it to provide a suitable implementation at the very moment of dispatch!
+
+This usually happens when you use information encoded in the property name as part of the property definition as in `ActiveRecord` finders such as `find_by_job_description`. 
+
+The Ruby Racer provides a similar mechanism to allow Ruby objects to define properties at access time. When you attempt to access a property of a Ruby object from JavaScript, it will first look to see if there is a pre-defined property. If not, it will then check to see if the object has defined a Ruby "hash access" method `[]()`. If so, it will invoke that method with the missing property name in order that the object can provide any implementation.
+
+Let's say for example that you wanted to dynamically define properties that returned a list of process for a given user.
+
+    class Processes
+      def [](name)
+        `ps -U #{name} -o pid`.split("\n")
+      end
+    end
+    
+    cxt['processes'] = Processes.new
+    cxt.eval('processes.cowboyd') #=> ["205", "209", "210", .....]
+    cxt.eval('processes.root') #=> ["1", "10", "11", "12", .....]
+    cxt.eval('processes.no_such_user') #=> []
+
+In a similar fashion, you can use the Ruby hash setter method `[]=()` in order to intercept property setting
+
+## Embedding Classes
+
+  In may come about that you want to embed an actual Ruby Class object into your JavaScript enviroment. JavaScript does not have the concept of classes, so we have to choose the best representation we can. The most natural way to do this is by treating a Ruby class as a constructor function. It behaves just like any other object embedded into ruby except that by default the Ruby Racer treats them as *constructor functions*. You can call the constructor in order to create instances of your ruby class and use them from JavaScript
+
+    class Point
+      attr_reader :x,:y
+      def initialize(x, y)
+        @x, @y = x, y
+      end
+      
+      def to_s
+        "(#{x},#{y})"
+      end
+    end
+    
+    cxt['Point'] = Point
+    cxt.eval('new Point(1,2)') #=> (1,2)
+
+## Where it Looks for Methods/Properties
+
+Finally, when The Ruby Racer is trying to find a method or property on an object, it does not search *all* of the object's public methods, but only a subset. This is because there are many potentially dangerous methods on every single Ruby object (such as `eval()`), and the Ruby Racer should tend towards safety. For that reason, The Ruby Racer provides access to all methods in a class's list of ancestors up to but not including Object.
+
+This includes any included or extend modules by an object's class and superclasses (except those included by Object and above). e.g.
+
+    module A
+      def a 
+        "a" 
+      end
+    end
+    class B
+      include A
+      def b 
+        "b"
+      end
+    end
+    class C < B
+      def c
+        "c"
+      end
+    end
+    module D
+      def d
+        "d"
+      end
+    end
+    class Object
+      include D
+    end
+    
+    cxt['c'] = C.new
+    cxt.eval('c.a') #=> a
+    cxt.eval('c.b') #=> b
+    
+    cxt.eval('c.d') #=> nil
+    cxt.eval('c.to_s') #=> nil
+
+That's about it. The Ruby Racer aims for accessing Ruby objects and methods to be *intuitive*, *simple*, and *safe* so that you can focus on creating your ideal embedding.
