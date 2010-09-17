@@ -3,4 +3,10 @@ layout: default
 ---
 
 
-Hello World
+{% assign p = site.posts.first %}
+<div class="Post">
+  <h1><a href="{{p.url}}">{{p.title}}</a></h1>
+  <div class="body">
+    {{p.content}}
+  </div>
+</div>
