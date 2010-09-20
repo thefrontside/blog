@@ -5,6 +5,7 @@
 @light-charcoal-grey: #676F75;
 @title-color: #0073B5;
 @text-color: #5B5D64;
+@item-color: #4a4a4c;
 
 body {
   font-family: Lucida Grande;
@@ -118,5 +119,11 @@ header {
     border-color: @code-border;
     background-color: @code-background;
     white-space: pre;
+  }
+
+  li p:first-child strong {
+    color: @item-color;
+    font-weight: 105%;
+    font-size: 14px;
   }
 }
