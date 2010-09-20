@@ -7,6 +7,17 @@
 @text-color: #5B5D64;
 @item-color: #4a4a4c;
 
+.rounded(@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.box-shadow(@x: 0px,@y: 0px, @blur: 2px, @spread: 0px, @color: black) {
+  box-shadow: @x @y @blur @spread @color;
+  -moz-box-shadow: @x @y @blur @spread @color;
+  -webkit-box-shadow: @x @y @blur @spread @color;
+}
+
 body {
   font-family: Lucida Grande;
   background-color: @background-color;
@@ -18,7 +29,6 @@ body {
     color: @title-color;
     text-decoration: underline;
   }
-
 }
 
 header {
@@ -66,8 +76,7 @@ header {
   background-color: rgb(226,229,233);
   background:-moz-linear-gradient(center top,rgb(226,229,233) 0%,rgb(226,229,233) 115px,rgb(255,255,255) 305px);
   background:-webkit-gradient(linear, center top, center bottom,color-stop(0,rgb(226,229,233)),color-stop(.05,rgb(226,229,233)),color-stop(.10,rgb(255,255,255)));
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
+  .rounded(15px);
 }
 
 #content-border {
@@ -125,5 +134,21 @@ header {
     color: @item-color;
     font-weight: 105%;
     font-size: 14px;
+  }
+}
+
+.Post {
+  .date {
+    border: 1px solid black;
+    color: white;
+    background-color: #3b3b43;
+    font-size: 14px;
+    font-weight: 105%;
+    padding: 10px 30px 10px 30px;
+    .rounded(10px);
+    position: absolute;
+    left: -5px;
+    top: 35px;
+    .box-shadow(0,0,6px);
   }
 }
