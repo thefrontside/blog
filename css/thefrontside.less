@@ -3,9 +3,20 @@
 @background-color: #eaecef;
 @charcoal-grey: #5E5B63;
 @light-charcoal-grey: #676F75;
+@title-color: #0073B5;
 
 body {
+  font-family: Lucida Grande;
   background-color: @background-color;
+  a, a:visited {
+    color: @title-color;
+    text-decoration: none;
+  }
+  a:hover {
+    color: @title-color;
+    text-decoration: underline;
+  }
+
 }
 
 header {
@@ -25,7 +36,7 @@ header {
     font-family: Gotham Medium;
     font-weight: bold;
     padding-left: 10px;
-    -webkit-mask-image: -webkit-gradient(linear, left top,left bottom, from(rgba(0,0,0,.5)), (rgba(0,0,0,1)));
+    -webkit-mask-image: -webkit-gradient(linear, left top,left bottom, color-stop(0,rgba(0,0,0,.5)), color-stop(.66,rgba(0,0,0,1)));
   }
 }
 
@@ -68,4 +79,9 @@ header {
   margin: auto;
   padding: 20px;
   background-color: white;
+
+  h1 {
+    color: @title-color;
+    font-size: 25px;
+  }
 }
