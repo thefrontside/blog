@@ -109,14 +109,18 @@ header {
   background-color: rgba(255,255,255,0.20);
 }
 
-#content {
-/*  width: 571px;*/
-  padding: 20px;
-  padding-left: 40px;
-  background-color: white;
+.text-main {
   color: @text-color;
   font-size: 13px;
   line-height: 19px;
+  font-weight: normal;
+}
+
+#content {
+  .text-main;
+  padding: 20px;
+  padding-left: 40px;
+  background-color: white;
 
   p {
     margin-top: 20px;
@@ -143,7 +147,7 @@ header {
     line-height: 20px;
     margin-top: 20px;
   }
-
+  
   @code-border: #e5e8eb;
   @code-background: #f5f6f8;
   pre {
@@ -154,8 +158,13 @@ header {
     white-space: pre;
   }
 
-  li p:first-child strong {
-    .subtitled;
+  ol {
+    li {
+      .text-main;
+      p:first-child strong {
+      .subtitled;
+      }
+    }
   }
 }
 
@@ -187,28 +196,36 @@ header {
 
   .bio {
     font-size: 11px;
+    font-weight: bold;
     .role {
+      font-size: 10px;
+      font-weight: normal;
       text-transform: uppercase;
     }
-    .networks img {
-      height: 20px;
-      width: 20px;
+    .networks {
+      margin-top: 3px;
+      img {
+        height: 20px;
+        width: 20px;
+      }
     }
     .avatar {
-      height: 60px;
-      width: 60px;
+      height: 50px;
+      width: 50px;
     }
   }
   div.quote {
     font-family: Times;
     font-style: italic;
     font-size: 21px;
+    font-weight: normal;
     color: #707378;
   }
 
   .item.recent-posts {
     font-size: 11px;
     .title {
+      font-weight: bold;
       margin-bottom: 5px;
     }
   }
