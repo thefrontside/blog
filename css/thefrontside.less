@@ -6,10 +6,23 @@
 @title-color: #0073B5;
 @text-color: #5B5D64;
 @item-color: #4a4a4c;
+@subtitle-color: @item-color;
 
 .rounded(@radius: 5px) {
+  border-radius: @radius;
   -webkit-border-radius: @radius;
   -moz-border-radius: @radius;
+}
+
+.roundedx(@top-left: 5px, @top-right: 5px, @bottom-right: 5px, @bottom-left: 5px) {
+  border-top-left-radius: @top-left;
+  -moz-border-radius-topleft: @top-left;
+  border-top-right-radius: @top-right;
+  -moz-border-radius-topright: @top-right;
+  border-bottom-right-radius: @bottom-right;
+  -moz-border-radius-bottomright: @bottom-right;
+  border-bottom-left-radius: @bottom-left;
+  -moz-border-radius-bottomleft: @bottom-left;
 }
 
 .box-shadow(@x: 0px,@y: 0px, @blur: 2px, @spread: 0px, @color: black) {
@@ -18,8 +31,14 @@
   -webkit-box-shadow: @x @y @blur @spread @color;
 }
 
+.subtitled {
+  color: @subtitle-color;
+  font-weight: 105%;
+  font-size: 14px;
+}
+
 body {
-  font-family: Lucida Grande;
+  font-family: "Lucida Grande";
   background-color: @background-color;
   a, a:visited {
     color: @title-color;
@@ -42,10 +61,11 @@ header {
   font-size: 25.5px;
   letter-spacing: 3px;
   .user-interfaces {
-    font-family: Gotham Light;
+    font-family: "Gotham Light";
+    font-weight: light;
   }
   .implemented {
-    font-family: Gotham Medium;
+    font-family: "Gotham Medium";
     font-weight: bold;
     padding-left: 10px;
     -webkit-mask-image: -webkit-gradient(linear, left top,left bottom, color-stop(0,rgba(0,0,0,.5)), color-stop(.66,rgba(0,0,0,1)));
@@ -66,6 +86,10 @@ header {
   position: relative;
 }
 
+#blank {
+  width: 151px;
+}
+
 #page {
   margin: auto;
   margin: 0px 9px 0px 9px;
@@ -79,16 +103,14 @@ header {
   .rounded(15px);
 }
 
+
 #content-border {
-  width: 579px;
-  margin: auto;
-  margin-left: 140px;
   padding: 4px;
   background-color: rgba(255,255,255,0.20);
 }
 
 #content {
-  margin: auto;
+/*  width: 571px;*/
   padding: 20px;
   padding-left: 40px;
   background-color: white;
@@ -133,10 +155,33 @@ header {
   }
 
   li p:first-child strong {
-    color: @item-color;
-    font-weight: 105%;
-    font-size: 14px;
+    .subtitled;
   }
+}
+
+#sidebar {
+  width: 180px;
+  padding-right: 20px;
+  margin-top: 4px;
+  margin-left: -4px;
+  z-index: -1px;
+  .border-stripe {
+    position: absolute;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2);
+    width: 4px;
+  }
+  h1 {
+    .roundedx(0,10px,10px,0);
+    .subtitled;
+    margin-bottom: 10px;
+    padding: 5px 20px 5px 20px;
+    background-color: #c8ced5;
+  }
+}
+
+td.sidebar {
+  text-align: left;
 }
 
 .Post {
