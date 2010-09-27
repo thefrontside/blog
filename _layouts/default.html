@@ -61,10 +61,38 @@
               <div id="sidebar">
                 <div class="border-stripe"></div>
                 <h1>/cowboyd</h1>
-                <div class="quote">
-                  For many years I wandered. Then I sat down to rip some code.
+                <div class="bio item">
+                  <table>
+                    <tr>
+                      <td><img class="avatar" src="images/skull_guns_60x60.png"/></td>
+                      <td>
+                        <div class="name">Charles Lowell</div>
+                        <div class="role">Founder</div>
+                        <div class="networks">
+                          <a href="http://twitter.com/cowboyd">
+                            <img src="images/TwitterIcon_20x20.png"/>
+                          </a>
+                          <a href="http://github.com/cowboyd">
+                            <img src="images/github_20x20.png" style="border-radius: 2px;"/>
+                          </a>
+                          <a href="http://github.com/cowboyd">
+                            <img src="images/feedicon_20x20.png"/>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                  <div class="quote">
+                    &ldquo;For many years I wandered. Then I sat down to rip some code.&rdquo;
+                  </div>
                 </div>
                 <h1>Recent Posts</h1>
+                <div class="item recent-posts">
+                  {% for p in site.posts offset:1 limit:6 %}
+                  <div class="date">{{p.date | date: "%b %d, %Y"}}</div>
+                  <div class="title"><a href="{{p.url}}">{{p.title}}</a></div>
+                  {% endfor %}
+                </div>
               </div>
             </td>
           </tr>
