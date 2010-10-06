@@ -99,7 +99,7 @@ header {
   min-height: 400px;
   background-color: rgb(226,229,233);
   background:-moz-linear-gradient(center top,rgb(226,229,233) 0%,rgb(226,229,233) 115px,rgb(255,255,255) 305px);
-  background:-webkit-gradient(linear, center top, center bottom,color-stop(0,rgb(226,229,233)),color-stop(.05,rgb(226,229,233)),color-stop(.10,rgb(255,255,255)));
+  background:-webkit-gradient(linear, center top, center 305,color-stop(0,rgb(226,229,233)),color-stop(.38,rgb(226,229,233)),color-stop(1,rgb(255,255,255)));
   .rounded(15px);
 }
 
@@ -185,6 +185,9 @@ header {
     .subtitled;
     margin-bottom: 10px;
     padding: 5px 20px 5px 20px;
+    background-color: #e2e5e9;
+  }
+  h1.first {
     background-color: #c8ced5;
   }
   p {
@@ -220,6 +223,8 @@ header {
     font-size: 21px;
     font-weight: normal;
     color: #707378;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .item.recent-posts {
