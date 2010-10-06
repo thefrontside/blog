@@ -8,6 +8,15 @@
 @item-color: #4a4a4c;
 @subtitle-color: @item-color;
 
+@font-face {
+  font-family: "Gotham Light";
+  src: url(gotham-light.otf);
+}
+@font-face {
+  font-family: "Gotham Medium";
+  src: url(gotham-medium.otf);
+}
+
 .rounded(@radius: 5px) {
   border-radius: @radius;
   -webkit-border-radius: @radius;
@@ -60,15 +69,21 @@ header {
   color: #87C6ED;
   font-size: 25.5px;
   letter-spacing: 3px;
-  .user-interfaces {
-    font-family: "Gotham Light";
-    font-weight: light;
-  }
-  .implemented {
-    font-family: "Gotham Medium";
-    font-weight: bold;
-    padding-left: 10px;
-    -webkit-mask-image: -webkit-gradient(linear, left top,left bottom, color-stop(0,rgba(0,0,0,.5)), color-stop(.66,rgba(0,0,0,1)));
+  #slogan {
+    width: 950px;
+    margin: auto;
+    padding: 50px 150px 0 20px;
+    text-align: right;
+    .user-interfaces {
+      font-family: "Gotham Light";
+      font-weight: light;
+    }
+    .implemented {
+      font-family: "Gotham Medium";
+      padding-left: 10px;
+      text-transform: uppercase;
+      -webkit-mask-image: -webkit-gradient(linear, left top,left bottom, color-stop(0,rgba(0,0,0,.5)), color-stop(.66,rgba(0,0,0,1)));
+    }
   }
 }
 
