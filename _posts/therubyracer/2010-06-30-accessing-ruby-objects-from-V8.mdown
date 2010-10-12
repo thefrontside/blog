@@ -1,4 +1,5 @@
 ---
+layout: post
 date: 30 June 2010
 summary: A look at the upcoming changes to The Ruby Racer's embedding API and how they will affect the way that a Ruby object looks like from within JavaScript code.
 more: read about how it works.
