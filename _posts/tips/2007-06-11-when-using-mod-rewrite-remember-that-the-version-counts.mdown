@@ -6,8 +6,6 @@ summary: A (very) brief note regular expressions in mod_rewrite across different
 category: Tips
 ---
 
-# When Using Mod Rewrite, Remember That The Version Counts
-
 Pro Tip: Which regular expressions work depends on the version of Apache/mod_rewrite that you're using. I recently tested the following rewrite rule on Apache2
 
     RewriteRule ^archives/(\d+).html http://www.thefrontside.net/map2new.php?$1 [R]

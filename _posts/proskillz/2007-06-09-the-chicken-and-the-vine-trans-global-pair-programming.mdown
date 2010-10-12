@@ -5,7 +5,6 @@ date: Sat Jun 09 00:07:14 -0500 2007
 summary: Pair-Programming, a popular member in the family of agile best practices, can be difficult to implement when the participants aren't even in the same country, much less the same room. Yet it's possible to do it effectively, and the tools we use to do it every day are robust, cross platform, and best of all, completely free.
 category: ProSkillz
 ---
-# The Chicken and the Vine: Trans-Global Pair Programming
 
 <p>The Frontside Software is a three person company with "offices" in Michigan, Finland, Massachusetts, and New Jersey. We're don't see each other every day, and we're rarely in the same room, but we still do a significant portion of our development work in pairs. Despite many other competing setups, we still do this with the not-so-new, not-so-exciting, yet extremely flexible and reliable <a href="http://www.realvnc.com/what.html" title="Real VNC">VNC</a> combined with a voip product like <a href="http://skype.com" title="Skype VOIP">skype</a>.</p>
 

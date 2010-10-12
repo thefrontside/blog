@@ -211,5 +211,14 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # We don't need to tell everyone we're apache.
 ServerSignature Off
 
+#Add Redirects from the old site.
 
+Redirect 301 /therubyracer/accessing-ruby-objects-from-javascript /2010/06/30/accessing-ruby-objects-from-V8/
+Redirect 301 /dhtml/in-search-of-a-better-autogrowing-textfield /2008/12/16/in-search-of-a-better-autogrowing-textfield/
+Redirect 301 /ruby/please-stop-using-global-variables-in-ruby /2008/06/25/please-stop-using-global-variables-in-ruby/
+Redirect 301 /java/patiently-waiting-for-javafx-script /2008/06/05/patiently-waiting-for-javafx-script/
+Redirect 301 /proskillz/rye-repeat-yourself-enough /2008/06/05/patiently-waiting-for-javafx-script/
+Redirect 301 /tips/when-using-mod-rewrite-remember-that-the-version-counts /2007/06/11/when-using-mod-rewrite-remember-that-the-version-counts/
+Redirect 301 /proskillz/the-chicken-and-the-vine-trans-global-pair-programming /2007/06/08/the-chicken-and-the-vine-trans-global-pair-programming/
+Redirect 301 /javascript/taming-the-rhino-making-mozillas-javascript-command-line-a-little-less-brutish /2006/08/04/taming-the-rhino-making-mozillas-javascript-command-line-a-little-less-brutish/
 

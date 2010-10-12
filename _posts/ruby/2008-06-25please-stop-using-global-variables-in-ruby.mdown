@@ -6,7 +6,6 @@ summary: From Ruby on Rails, to the Amazon Web Services libraries, the ruby cult
 category: Ruby
 more: read more about why global variables are considered harmful
 ---
-# Please Stop Using Global Variables In Ruby
 
 I couldn't sleep this morning. I woke up around 4:30 AM thinking about how code is organized in ruby. I'm sure I will look back on my life with disbelief and a touch of shame at such behavior, but that is (hopefully) decades away.
 

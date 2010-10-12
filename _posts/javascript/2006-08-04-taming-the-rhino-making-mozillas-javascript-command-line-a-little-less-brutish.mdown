@@ -7,8 +7,6 @@ category: javascript
 more: Read more about how to make the Rhino command line much more user friendly
 ---
 
-# Taming the Rhino: Making Mozilla's Javascript Command Line a Little Less Brutish.
-
 <p>I recently <a href="learning-javascript-from-the-command-line">described</a> how to use the one of the <a href="http://www.mozilla.org/js/">freely available shells</a> as a great way to explore your javascript runtime. There are two implementations of the javascript interpreter sponsored by the Mozilla project, <a href="http://www.mozilla.org/js/spidermonkey">Spider Monkey</a> an interpreter implemented in C, and <a href="http://www.mozilla.org/rhino/">Rhino</a>, an interpreter implemented in Java. With respect to the javascript runtime itself, these two implementations are almost identical, and so what works in one, will generally work in the other. They diverge, however, when it comes to embedding objects and functions that are implemented in a language other than javascript. Naturally, Spidermonkey is better suited for embedding objects implemented in C, while Rhino excels at embedding objects implemented in Java.</p>
 
 <p>What exactly is "embedding" an object implemented in Java? If you don't know what this means already, I could try to describe it to you, but why not show it live and in the flesh with the Rhino command line? That's the exploratory technique that I find so valuable.</p>

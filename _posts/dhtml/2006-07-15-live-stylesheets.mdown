@@ -6,8 +6,6 @@ summary: How to edit CSS stylesheets from inside your JavaScript code.
 categories: [DHTML, JavaScript]
 ---
 
-# Live Stylesheets
-
 <p>Even after working with DTML for over a year, I'm still constantly astounded by how <em>dynamic it actually is</em>. The most important thing to keep in the back of your head as a DHTML programmer is that the same mechanisms used by the browser to build an HTML document at load time are available to your in-page scripts. So, really, the static loading of your pages when you access a url is just the HTML parser invoking the same methods on the same objects that are available to your javascript code.</p>
 <!--break-->
 <p>Take this static HTML code:</p>

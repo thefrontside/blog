@@ -6,8 +6,6 @@ summary: Upon closer inspection, the new language being promoted by SUN to devel
 categories: [Java, JavaFX]
 ---
 
-# Patiently waiting for JavaFX Script
-
 About a year ago, SUN announced a "new" platform for developing embeddable applications on the web, and they called this platform JavaFX. In reality, this new platform seems to me less of an innovation and more of a rehabilitation of the applet infrastructure which they allowed to languish over the last decade. 
 
 That's not a criticism, it's a compliment. I'm happy that they're going to give applets another go. Heck, I'm even glad they're calling it JavaFX too. "Applet" always sounded too effete anyway. In any case I've always like the applet model, and wished it were a more viable option for web development. Given the success of Flex, which also uses the applet model, other people must feel this way too.

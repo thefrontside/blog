@@ -7,8 +7,6 @@ category: dhtml
 more: read more about my homegrown autogrow
 ---
 
-# In search of a better autogrowing textfield
-
 Autogrowing textfields are a nice piece of flash for any web application. They conserve precious screen real-estate, but grow to a height just big enough to accomodate the text the user actually typed without resorting to unsightly things scrollbars.
 
 There are a number of solutions out there, but since I'm using <a target="_blank" href="http://jquery.com">jQuery</a> on my current project, the two that I evaluated were <a href="http://plugins.jquery.com/project/Growfield" target="_blank">Growfield</a> and <a target="_blank" href="http://plugins.jquery.com/project/Autogrow">Autogrow</a>.
