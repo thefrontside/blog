@@ -213,7 +213,7 @@ ServerSignature Off
 
 #Add Redirects from the old site.
 
-Redirect 301 /therubyracer/accessing-ruby-objects-from-javascript /2010/06/30/accessing-ruby-objects-from-V8/
+Redirect permanent /therubyracer/accessing-ruby-objects-from-javascript /2010/06/30/accessing-ruby-objects-from-V8/
 Redirect 301 /dhtml/in-search-of-a-better-autogrowing-textfield /2008/12/16/in-search-of-a-better-autogrowing-textfield/
 Redirect 301 /ruby/please-stop-using-global-variables-in-ruby /2008/06/25/please-stop-using-global-variables-in-ruby/
 Redirect 301 /java/patiently-waiting-for-javafx-script /2008/06/05/patiently-waiting-for-javafx-script/
