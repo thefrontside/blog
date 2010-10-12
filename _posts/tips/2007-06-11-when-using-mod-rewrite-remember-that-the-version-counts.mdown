@@ -15,7 +15,7 @@ I wanted to match files like archives/000532.html.
 
 But when it came time to deploy, it didn't work. Turns out the environment I was deploying to was using a different version of Apache. That's bad practice of course, but aside from that, the little gotcha was that the regular expression interpreter was different in different versions of Apache, and in this case, its behavior differed not only from the newer version but also from the behavior of most regexp engine's out there. Specifically, the "digit" literal `\d` is not understood by older versions (which interpret it as a literal "d"). 
 
-Instead I had to use [0-9]
+Instead I had to use \[0-9\]
 
 
     RewriteRule ^archives/([0-9]+).html http://www.thefrontside.net/map2new.php?$1 [R]
