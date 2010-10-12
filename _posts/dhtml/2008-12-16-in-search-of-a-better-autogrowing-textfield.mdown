@@ -1,7 +1,7 @@
 ---
 layout: post
 author: cowboyd
-date: Tue Dec 16 08:14:13 -0600 2008
+date: 16 Dec 2008
 summary: Dissatisfied with the quirks in existing solutions to autogrow textfields, I decide to attempt my own cross browser, cross operating system auto growing textfield.
 category: dhtml
 more: read more about my homegrown autogrow

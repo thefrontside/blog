@@ -2,28 +2,22 @@
 layout: default
 ---
 
-
-{% assign p = site.posts.first %}
+{% for post in site.posts %}
 <div class="Post">
-  <h1><a href="{{p.url}}">{{p.title}}</a></h1>
-  <div class="date">{{p.date | date: "%b %d, %Y"}}</div>
-  <div class="body">
-    {{p.content}}
+  <div class="summary">
+    <div class="date">{{post.date | date: "%b %d, %Y"}}</div>
+    <h1><a href="{{post.url}}">{{post.title}}</a></h1>
+    <div class="body">
+      {{post.summary}}
+      <div class="more"><a href="{{post.url}}">
+        {% if post.more %}
+          {{post.more}}...
+        {% else %}
+          read more...
+        {% endif %}
+      </a></div>
+    </div>
   </div>
-  <hr/>
-  <div id="disqus_thread"></div>
-  <script type="text/javascript">
-    var disqus_developer = 1;
-    /**
-      * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
-      */
-    (function() {
-     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-     dsq.src = 'http://thefrontside.disqus.com/embed.js';
-     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=thefrontside">comments powered by Disqus.</a></noscript>
-  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
 </div>
+
+{% endfor %}
