@@ -2,4 +2,23 @@
 layout: default
 ---
 
-{{content}}
+<div class="Post">
+  <h1><a href="{{page.url}}">{{page.title}}</a></h1>
+  <div class="date">{{page.date | date: "%b %d, %Y"}}</div>
+  <div class="body">
+    {{content}}
+  </div>
+  <hr/>
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    var disqus_identifier = "{{page.id}}";
+    (function() {
+     var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+     dsq.src = 'http://thefrontside.disqus.com/embed.js';
+     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=thefrontside">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div>
