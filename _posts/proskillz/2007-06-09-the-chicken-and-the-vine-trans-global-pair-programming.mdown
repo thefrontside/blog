@@ -1,4 +1,6 @@
 ---
+layout: post
+author: cowboyd
 date: Sat Jun 09 00:07:14 -0500 2007
 summary: <p>Pair-Programming, a popular member in the family of agile best practices, can be difficult to implement when the participants aren't even in the same country, much less the same room. Yet it's possible to do it effectively, and the tools we use to do it every day are robust, cross platform, and best of all, completely free.</p>
 category: ProSkillz

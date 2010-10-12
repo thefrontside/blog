@@ -1,4 +1,6 @@
 ---
+layout: post
+author: cowboyd
 date: Mon Jun 11 13:11:05 -0500 2007
 summary: A (very) brief note regular expressions in mod_rewrite across different versions.
 category: Tips

@@ -1,5 +1,6 @@
 ---
 layout: post
+author: cowboyd
 date: Sat Jul 15 20:41:42 -0500 2006
 summary: How to edit CSS stylesheets from inside your JavaScript code.
 categories: [DHTML, JavaScript]

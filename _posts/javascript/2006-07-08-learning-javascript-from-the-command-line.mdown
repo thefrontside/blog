@@ -1,6 +1,8 @@
-Date: Wed Aug 02 11:49:36 -0500 2006
-Summary: JavaScript is more than just the language of DHTML, it is a rich and expressive language that can be used completely separately from the Browser and the DOM. Here we see a great way to find out more about JavaScript the language by interacting with it directly.
 ---
+layout: post
+author: cowboyd
+date: Wed Aug 02 11:49:36 -0500 2006
+summary: JavaScript is more than just the language of DHTML, it is a rich and expressive language that can be used completely separately from the Browser and the DOM. Here we see a great way to find out more about JavaScript the language by interacting with it directly.
 category: javascript
 description: Create a rhino javascript command line shell
 more: Continue reading about creating up a JavaScript shell.

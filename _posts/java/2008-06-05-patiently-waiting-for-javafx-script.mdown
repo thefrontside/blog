@@ -1,5 +1,6 @@
 ---
 layout: post
+author: cowboyd
 date: Thu Jun 05 11:22:05 -0500 2008
 summary: Upon closer inspection, the new language being promoted by SUN to develop for the embeddable web, JavaFX Script, is much more than meets the eye. I wonder why the abrupt departure from their habitually conservative stance when it comes to language features.
 categories: [Java, JavaFX]

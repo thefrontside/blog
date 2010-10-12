@@ -1,4 +1,6 @@
 ---
+layout: post
+author: cowboyd
 date: Fri Aug 04 11:19:23 -0500 2006
 summary: In a previous post, I showed what a great tool the command line is for learning a runtime through exploration via trial and error. However, the default command line that ships with rhino is anything but friendly. Here I present one technique to make the experience much more pleasant.
 category: javascript
