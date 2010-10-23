@@ -120,7 +120,7 @@
                 {% endif %}
                 <h1>Recent Posts</h1>
                 <div class="item recent-posts">
-                  {% for p in site.posts offset:1 limit:6 %}
+                  {% for p in site.posts limit:5 %}
                   <div class="date">{{p.date | date: "%b %d, %Y"}}</div>
                   <div class="title"><a href="{{p.url}}">{{p.title}}</a></div>
                   {% endfor %}
