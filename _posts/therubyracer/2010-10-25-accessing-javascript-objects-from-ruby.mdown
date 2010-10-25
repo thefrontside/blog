@@ -2,6 +2,7 @@
 layout: post
 author: cowboyd
 date: 25 October 2010
+title: Accessing JavaScript Objects From Ruby
 summary: The Ruby Racer is all about the interaction between JavaScript and Ruby. In this article, we'll show how to interact with JavaScript objects, functions, methods and constructors, all from within Ruby.
 more: show advanced JavaScript access.
 categories: [javascript, ruby, therubyracer]
