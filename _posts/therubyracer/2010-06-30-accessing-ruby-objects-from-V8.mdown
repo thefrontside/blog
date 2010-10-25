@@ -179,9 +179,8 @@ Let's say for example that you wanted to dynamically define properties that retu
     cxt.eval('processes.no_such_user') #=> []
 
 In a similar fashion, you can use the Ruby hash setter method `[]=()` in order to intercept property setting
-
+<a name="classes"></a>
 ## Embedding Classes
-
   In may come about that you want to embed an actual Ruby Class object into your JavaScript enviroment. JavaScript does not have the concept of classes, so we have to choose the best representation we can. The most natural way to do this is by treating a Ruby class as a constructor function. It behaves just like any other object embedded into ruby except that by default the Ruby Racer treats them as *constructor functions*. You can call the constructor in order to create instances of your ruby class and use them from JavaScript
 
     class Point
