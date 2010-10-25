@@ -170,7 +170,7 @@ Because of this mechanism, JavaScript method invocation is much more flexible th
 virtually _any_ object can be used as the invocant of _any_ function provided it has the requisite properties
 to satisfy the function's requirements:
 
-    area.methodcall(:radius => 5) #=> 25
+    area.methodcall(:radius => 5) #=> 25Π
     other_circle = OpenStruct.new
     other_circle.radius = 10
     area.methodcall(other_circle) #=> 100Π
