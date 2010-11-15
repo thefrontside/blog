@@ -3,7 +3,7 @@ layout: post
 author: cowboyd
 date: 14 Nov 2010
 title: We must come together to honor the command line
-summary: It feels lately as though the Ruby community has lost its way when it comes to the command line, and just at a time when we need it most.
+summary: The future is uncertain when it comes to the way command line application will be written in Ruby. The community needs to come together in order to determine what life should be like after OptionParser.
 categories: [ruby]
 more: what we should do about it.
 ---
