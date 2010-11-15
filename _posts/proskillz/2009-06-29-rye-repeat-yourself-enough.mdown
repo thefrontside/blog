@@ -1,7 +1,7 @@
 ---
 layout: post
 author: cowboyd
-date: Fri Jun 29 17:44:37 -0500 2007
+date: 29 Jun 2009
 summary: Everybody believes in the DRY principle. Not only is it common sense, but projects like ruby on rails have achieved real success adopting it as a core value. In practice however, applying it with too much zeal can actually be harmful. That's why in my experience, the best way to uphold the DRY principle is to violate it mindfully.
 category: ProSkillz
 ---

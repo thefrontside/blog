@@ -1,7 +1,7 @@
 ---
 layout: post
-author:cowboyd
-date: Wed Jun 25 15:12:18 -0500 2008
+author: cowboyd
+date: 25 Jun 2008
 summary: From Ruby on Rails, to the Amazon Web Services libraries, the ruby culture has a serious love-affair with global variables which I have yet to grasp.
 category: Ruby
 more: read more about why global variables are considered harmful
