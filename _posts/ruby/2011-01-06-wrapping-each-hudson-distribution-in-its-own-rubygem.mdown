@@ -1,7 +1,7 @@
 ---
 layout: post
 author: cowboyd
-date: 05 Jan 2011
+date: 06 Jan 2011
 title: Wrapping each Hudson distribution in its own RubyGem
 summary: "We've been working (slowly) on bringing a pure ruby experience to writing hudson plugins. As part of that, we've made it a snap to control hudson versions by using your favorite dependency manager: RubyGems."
 categories: [ruby, hudson, java]
@@ -38,7 +38,7 @@ therein?
 ## The Gem
 
 To my thinking, this sounds like a job for: RubyGems! That's why we're introducing
-the new `hudson-war` gem, which does nothing except wrap a single hudson
+the new [hudson-war](https://rubygems.org/gems/hudson-war) gem, which does nothing except wrap a single hudson
 distribution so that it can be managed coherently just like any other ruby 
 component. Want the latest warfile?
 
