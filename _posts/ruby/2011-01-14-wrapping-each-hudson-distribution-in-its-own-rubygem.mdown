@@ -2,7 +2,7 @@
 layout: post
 author: cowboyd
 date: 05 Jan 2011
-title: Wrapping each hudson distribution in its own RubyGem
+title: Wrapping each Hudson distribution in its own RubyGem
 summary: "We've been working (slowly) on bringing a pure ruby experience to writing hudson plugins. As part of that, we've made it a snap to control hudson versions by using your favorite dependency manager: RubyGems."
 categories: [ruby, hudson, java]
 more: Why on earth would you want to do that?
