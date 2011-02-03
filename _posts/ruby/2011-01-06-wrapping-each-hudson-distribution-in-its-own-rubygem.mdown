@@ -8,6 +8,9 @@ categories: [ruby, hudson, java]
 more: Why on earth would you want to do that?
 ---
 
+> ___Update___: As of version `1.396`, this is applicable to the [Jenkins](http://jenkins-ci.org) project.
+> `1.395` will be the last version of the hudson-war gem
+
 As you may or may not know, we here at The FrontSide have been working since
 late last year to create a proper ruby environment for extending hudson. This
 is no mean feat because it implies not only the ability to use nothing but ruby
