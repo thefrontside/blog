@@ -67,7 +67,6 @@ module Jekyll
     safe true
     priority :low
     
-    puts "Generating atoms..."
     def generate(site)
       # Find all authors
       authors = []
