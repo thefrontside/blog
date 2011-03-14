@@ -82,31 +82,33 @@
               <div id="sidebar">
                 <div class="border-stripe"></div>
                 {% if page.author %}
-                <h1 class="first">/{{page.author}}</h1>
+                <h1 class="first">/{{page.author.handle}}</h1>
                 <div class="bio item">
                   <table>
                     <tr>
-                      <td><img class="avatar" src="{{site.url}}/images/skull_guns_60x60.png"/></td>
+                      <td><img class="avatar" src="{{site.url}}/{{page.author.avatar}}"/></td>
                       <td style="padding-left: 5px;">
-                        <div class="name">Charles Lowell</div>
-                        <div class="role">Founder</div>
+                        <div class="name">{{page.author.full_name}}:</div>
+                        {% if page.author.role %}<div class="role">{{page.author.role}}</div>{% endif %}
                         <div class="networks">
-                          <a href="http://twitter.com/cowboyd">
+                          {% if page.author.twitter %}<a href="http://twitter.com/{{page.author.twitter}}">
                             <img src="{{site.url}}/images/twitterIcon.png"/>
-                          </a>
-                          <a href="http://github.com/cowboyd">
+                          </a>{% endif %}
+                          {% if page.author.github %}<a href="http://github.com/{{page.author.github}}">
                             <img src="{{site.url}}/images/gitIcon.png" style="border-radius: 2px;"/>
-                          </a>
-                          <a href="/atom.xml">
+                          </a>{% endif %}
+                          <a href="{{site.url}}/atom/{{page.author.handle}}.xml">
                             <img src="{{site.url}}/images/rssIcon.png"/>
                           </a>
                         </div>
                       </td>
                     </tr>
                   </table>
+                  {% if page.author.github %}
                   <div class="quote">
-                    &ldquo;For many years I wandered. Then I sat down to rip some code.&rdquo;
+                    &ldquo;{{page.author.quote}}&rdquo;
                   </div>
+                  {% endif %}
                 </div>
                 {% else %}
                 <h1 class="first">/thefrontside</h1>
