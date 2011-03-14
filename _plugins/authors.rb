@@ -80,7 +80,7 @@ module Jekyll
       # Generate an atom.xml for each user
       # They will be placed in /atom/handle.xml
       atom_dir = File.join(site.source, 'atom') 
-      Dir.mkdir atom_dir if !Dir.exists? atom_dir
+      Dir.mkdir atom_dir if !Dir.exist? atom_dir
       authors.each do |author|
         # Create a simple atom file
         File.open(File.join(atom_dir, "#{author.handle}.xml"), "w") do |file|
