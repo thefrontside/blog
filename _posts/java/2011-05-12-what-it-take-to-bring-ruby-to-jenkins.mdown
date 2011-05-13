@@ -24,26 +24,26 @@ To name a few of them, we are now able to
 This is by no means an exhaustive list, but I want to stress just how far we've come before I talk about where it is that
 we need to go. 
 
-While the work done so far represents some phenomenal accomplishments, in the end, they are only that, technical accomplishments which do not together create a coherent developer experience. So now, for this endeavor to succeed, we must focus our attention on making that *entire experience*, from project start to release after release, as frictionless as possible.
+While the work done so far represents some phenomenal accomplishments, in the end, they are only technical accomplishments which do not together create a coherent developer experience. So now, for this endeavor to succeed, we must focus our attention on making that *entire experience*, from project start to release after release, as frictionless as possible.
 
 To that end, I propose the following high level goal for the Jenkins Ruby Plugins project: 
 
 >To provide the facility to create, develop and release extensions for Jenkins with nothing but knowledge of the language, tools and best practices of the Ruby community.
 
-This is, I think, the most important ideal to aspire to when claiming to provide a Ruby development experience. Unless it feels like the real McCoy, then you aren't really developing Ruby at all, you're just scripting Java with JRuby. You won't fool anybody, and as a result, there will be far less enthusiasm and adoption.
+This is, I think, the most important ideal to aspire to when claiming to provide a Ruby development experience. Unless it feels like the real McCoy, then you aren't really developing Ruby at all, you're just scripting Java with JRuby. You won't fool anybody, and there will be far less enthusiasm and adoption.
 
 That said, several things follow logically from this thesis, the first of which is:
 
 ### Absolutely, Positively, No Maven!
 
-This is not an ideological stance on the value of Maven as a <strike>wretched pile of toad sick</strike> software development tool. Rather, it is an explicit acknowledgement that is not a Ruby tool, it does not fit in the community's ken, and if you're using it 
+This is not an ideological stance on the value of Maven as a <strike>wretched pile of toad sick</strike> software development tool. Rather, it is an explicit acknowledgement that it is not a Ruby tool, it doesn't fit with the community's style, and if you're using it 
 you might not be doing Java, but you *certainly* aren't doing Ruby. Instead, we should turn to the Ruby tools that
-occupy this same space: `Rake` for scripting the build, and `Bundler` for dependency management.
+occupy this same space: Rake for scripting the build, and Bundler for dependency management.
 
 ### Ruby-Like Project Structure
 
 If we aren't going to use Maven, then why should we be constrained by the project directory structure that it imposes. `src/main/resources/what?` Nope. Just one glance at Jenkins Ruby Plugin's layout in an editor or file system browser
-should put a rubyist's mind right at ease. You see that? There's your `Gemfile` just
+should put a Rubyist's mind right at ease. You see that? There's your `Gemfile` just
 where you left him. And oh, your pals `lib/` and `spec/` are there too. Let's get right to work!
 
 ### Managing The Project Life-Cycle
@@ -63,9 +63,10 @@ testing the plugin at both the unit and functional levels.
 
 ### Documentation
 
-The "ruby-like" API that plugin development provides is similar, but not equivalent to its native Java equivalent. 
+The "Ruby-like" API that plugin development provides is similar, but not equivalent to its native Java equivalent. 
 It is critical that this API be well documented, so that developers can understand it, and do not find themselves constantly
-referring to the JavaDoc, which they may very well not understand (it being Java)
+referring to the JavaDoc, which they may very well not understand (it being Java), and might be misleading given the natural
+asymmetries of the two APIs.
 
 ## Heed the Call!
 
