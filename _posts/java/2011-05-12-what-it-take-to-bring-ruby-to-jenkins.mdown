@@ -78,3 +78,5 @@ But the most important thing that you can do is to join in on the conversation!
 
 [irc](irc://freenode.net/jenkins), and [email](http://groups.google.com/group/jenkinsrb) are just a few of the ways to reach out!
 
+> Update. I have posted the first scenario: [creating a plugin](https://github.com/cowboyd/jenkins.rb/blob/ruby-plugin-development/features/plugins/create-new-plugin.feature).
+> The first bounty is officially posted.
