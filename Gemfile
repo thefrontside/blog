@@ -1,4 +1,4 @@
 source :rubygems
 
 gem 'jekyll'
-gem 'less'
+gem 'less', "~> 1.0"
