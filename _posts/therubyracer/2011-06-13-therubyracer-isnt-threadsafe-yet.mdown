@@ -9,8 +9,13 @@ categories: [javascript, ruby, therubyracer]
 description: A run down of the problems of multi-threading and The Ruby Racer as well as potential solutions.
 ---
 
-> In which I explain problems unique to running The Ruby Racer in a multithreaded environment, 
-> which users are affected by these problems, and what is to be done for them.
+>
+> <strike>In which I explain problems unique to running The Ruby Racer in a multithreaded environment, 
+> which users are affected by these problems, and what is to be done for them.</strike>
+>
+> UPDATE: This issue has been resolved with [version 0.9.1](http://rubygems.org/gems/therubyracer/versions/0.9.1).
+> You should be able to stop reading here, update your Gemfile, and have a great day. That said, please don't
+> let me discourage you from continuing down the page. It's riveting.
 
 There have been a number of crashes reported in [several](https://github.com/cowboyd/therubyracer/issues/79) [different](https://github.com/rails/rails/issues/1667) [places](http://redmine.ruby-lang.org/issues/4821) for which [The Ruby Racer](http://github.com/cowboyd/therubyracer) is the culprit. For the most part, these are people running an Rails 3.1 application in a multithreaded webserver such as WEBrick, but as we'll see, it could be anybody that is using The Ruby Racer in a mulithreaded environment. In order to speak to these and future issues
 in one place, as well as prevent the spread of any misinformation or impressions, I wanted to very quickly explain what exactly is causing these crashes, who is affected by them and where, and finally how we're going to make them go away.
