@@ -19,7 +19,9 @@ It's not time to declare victory yet, but at least the first two of [our major g
 
 Practically, this means that rubyists can check out the source and get hacking without needing any knowledge of
 Java or any Java toolchain. That's why I think it's safe to officially declare the project to be in
-a "pre-alpha" state. It isn't yet for the faint of heart, and you're sure to find many things confusing and
+a ***pre-alpha*** state.
+
+It isn't yet for the faint of heart, and you're sure to find many things confusing and
 difficult. But at least those who know only Ruby can contribute bug reports, identify pain points, and contribute
 to the creative process.
 
