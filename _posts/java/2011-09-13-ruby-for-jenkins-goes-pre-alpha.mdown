@@ -30,4 +30,4 @@ It's 8:20am, but it still feels like Miller time.
 
 [1]: http://wiki.jenkins-ci.org/display/JENKINS/Jenkins+plugin+development+in+Ruby  "Jenkins Ruby Hacking"
 [2]: https://github.com/cowboyd/jenkins-prototype-ruby-plugin "Prototype Ruby Plugin"
-[3]: /2011/05/12/what-it-take-to-bring-ruby-to-jenkins, "What it takes to bring Ruby to Jenkins"
+[3]: /2011/05/12/what-it-take-to-bring-ruby-to-jenkins "What it takes to bring Ruby to Jenkins"
