@@ -27,14 +27,17 @@ Java equivalent inside the Java hiearchy of inheritance.
 Exposing this simplicity is a worthy goal, but to do so requires
 careful consideration of each Jenkins Java API and how to provide its
 functionality in the Ruby way --no mean feat given the breadth of the
-Jenkins. And sadly, it means that these Ruby-friendly APIs must
-necessarily lag behind their Java counterparts.
+Jenkins.
+
+Sadly, it means that these Ruby-friendly APIs must necessarily lag
+behind their Java counterparts.
 
 This can be a serious source of frustration for those looking to
 dive into Jenkins Ruby development right now. Initial excitement is
-quickly dulled you find out that the extension point that you wanted
-to implement is unavailable from Ruby land. You might get discouraged
-and feel like you might as well be coding your plugin with Java.
+quickly dulled when you find out that the extension point that you
+wanted to implement is unavailable from Ruby land. You might get
+discouraged and feel like you might as well be coding your plugin
+with Java.
 
 Well don't lose heart! I'd like to share with you a super easy way to
 write your extension points in Ruby even when there isn't a friendly
@@ -141,9 +144,11 @@ output. You should see something like this:
 
 ## The Sweet Reality
 
-Even though we were dealing more with Java than with Ruby, we were
+Even though we were dealing more directly with Java, we were
 still able to use all of the simplicity that comes with developing
-plugins in Ruby.
+plugins in Ruby. Furthermore, even though our extension point was just
+scripted Java, it doesn't mean that inside its methods it can't call
+as much pure Ruby code as its heart desires.
 
 I hope that if you're considering writing your next (or your first!)
 Jenkins plugin in Ruby, you'll feel confident that you can always
