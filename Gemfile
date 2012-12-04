@@ -1,4 +1,5 @@
 source :rubygems
 
 gem 'jekyll'
-gem 'less', "~> 1.0"
+gem 'rack-jekyll'
+gem 'less', "~> 1.2.21"

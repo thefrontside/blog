@@ -3,7 +3,7 @@ module Jekyll
   class LessConverter < Converter
     safe true
     priority :low
-    
+
     def matches(ext)
       ext =~ /less/
     end
@@ -14,7 +14,7 @@ module Jekyll
 
     def convert(content)
       begin
-        Less.parse(content)
+        Less::Parser.new.parse(content).to_css
       rescue Exception => e
         warn e
         raise e
